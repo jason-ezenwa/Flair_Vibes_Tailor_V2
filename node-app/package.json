@@ -1,0 +1,43 @@
+{
+  "name": "flair_vibes_tailor_v2",
+  "version": "1.0.0",
+  "description": "The Flair Vibes Tailor app but converted from a Flask application to a Node Application.",
+  "type": "module",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JasonFlair/Flair_Vibes_Tailor_V2.git"
+  },
+  "keywords": [
+    "Flair Vibes Tailor",
+    "music recommender",
+    "music",
+    "recommendations",
+    "personalized music",
+    "music discovery",
+    "audio features"
+  ],
+  "author": "Chukwuemelie 'Jason Flair' Obumse",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JasonFlair/Flair_Vibes_Tailor_V2/issues"
+  },
+  "homepage": "https://github.com/JasonFlair/Flair_Vibes_Tailor_V2#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-jwt": "^8.4.1",
+    "jsonwebtoken": "^9.0.0",
+    "mongodb": "^5.6.0",
+    "mongoose": "^7.3.1",
+    "morgan": "^1.10.0",
+    "node-cache": "^5.1.2",
+    "nodemon": "^2.0.22",
+    "request": "^2.88.2"
+  }
+}
