@@ -13,7 +13,7 @@ Link to the deployed product - <a href="https://jasonflair.pythonanywhere.com/fv
 - jQuery
 
 # Built With
-- <a href="https://flask.palletsprojects.com/en/2.2.x/" target="_blank">Flask</a> - The web framework used
+- <a href="https://nodejs.org/en" target="_blank">Node.js</a> - The server-side runtime environment
 - <a href="https://docs.python-requests.org/en/latest/" target="_blank">Requests</a> - A node.js library for making HTTP requests
 - <a href="https://api.jquery.com/" target="_blank">jQuery</a> - Used to make the song recommendations render dynamically
 - <a href="https://developer.spotify.com/" target="_blank">Spotify's api</a> - Used to explore audio features and audio analysis of tracks
