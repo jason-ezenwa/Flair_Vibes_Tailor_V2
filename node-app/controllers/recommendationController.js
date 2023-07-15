@@ -4,7 +4,7 @@ import request from 'request';
 import generateRecommendations from '../utils/generate_recommendations.js';
 import getAudioFeatures from '../utils/get_audio_features.js';
 class recommendationController {
-  static async submitSong (req, res) {
+  static async getRecommendations (req, res) {
     // handles the song inputed by the users and fetches its audio features.
     // get an access token whenever a user uses the service using client id and secret
     const access_token = await spotify_auth();

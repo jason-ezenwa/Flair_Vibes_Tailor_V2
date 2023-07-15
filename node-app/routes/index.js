@@ -3,6 +3,6 @@ import recommendationController from '../controllers/recommendationController.js
 
 const router = express.Router();
 
-router.post('/submit_song', recommendationController.submitSong);
+router.post('/get_recommendations', recommendationController.getRecommendations);
 
 export default router;
