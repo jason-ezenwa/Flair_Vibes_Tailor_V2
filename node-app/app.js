@@ -21,18 +21,6 @@ const api = process.env.API_URL;
 
 app.use(`${api}`, allRoutes);
 
-/*mongoose.connect(
-  process.env.CONNECTION_STRING,
-  {
-    useUnifiedTopology: true,
-  },
-).then(
-  () => {
-    console.log('Connected to db');
-  },
-).catch((error) => {
-  console.log({ error });
-});*/
 
 app.listen(3000, () => {
   console.log('App is listening...');
