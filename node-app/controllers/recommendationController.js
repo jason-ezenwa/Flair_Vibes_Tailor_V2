@@ -57,7 +57,7 @@ class recommendationController {
   }
 
   static testHello(req, res) {
-    return res.status(200).send('hello jason we are testing')
+    return res.status(200).send('hello jason we are testing\n')
   }
 }
 export default recommendationController;

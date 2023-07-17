@@ -9,7 +9,7 @@ $(document).ready(function(){
 
 
     // code for the flair vibes tailor server side 
-    const apiUrl = 'http://flair-vibes-tailor-backend/api/v1/get_recommendations';
+    const apiUrl = 'http://flair-vibes-tailor-backend.vercel.app/api/v1/get_recommendations';
     let query_data = {}
     $('form#submit_songs').submit(function(event) {
         event.preventDefault();
