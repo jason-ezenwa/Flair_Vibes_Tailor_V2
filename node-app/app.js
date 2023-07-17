@@ -15,7 +15,6 @@ app.use(cors());
 app.options('*', cors());
 app.use(json());
 app.use(morgan('tiny')); // logger
-//app.use(authJwt()); // secures server based on jwt.
 app.use(errorHandler);
 
 const api = process.env.API_URL;
