@@ -54,7 +54,10 @@ class recommendationController {
     } catch (error) {
       res.status(500).json({error: 'server error'})
     }
+  }
 
+  static testHello(req, res) {
+    return res.status(200).send('hello jason we are testing')
   }
 }
 export default recommendationController;
