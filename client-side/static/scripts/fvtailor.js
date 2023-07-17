@@ -8,7 +8,7 @@ $(document).ready(function(){
     });
 
 
-    // code for the flair vibes tailor itself
+    // code for the flair vibes tailor server side 
     const apiUrl = 'http://fvt-backend/api/v1/get_recommendations';
     let query_data = {}
     $('form#submit_songs').submit(function(event) {
