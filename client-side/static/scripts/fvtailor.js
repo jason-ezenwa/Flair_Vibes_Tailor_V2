@@ -9,7 +9,7 @@ $(document).ready(function(){
 
 
     // code for the flair vibes tailor itself
-    const apiUrl = 'http://localhost:3000/api/v1/get_recommendations';
+    const apiUrl = 'http://fvt-backend/api/v1/get_recommendations';
     let query_data = {}
     $('form#submit_songs').submit(function(event) {
         event.preventDefault();
