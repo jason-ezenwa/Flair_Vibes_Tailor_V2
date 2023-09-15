@@ -14,7 +14,7 @@
 }
 
 .recommendations {
-  @apply flex gap-8 flex-wrap
+  @apply flex gap-8 flex-wrap items-center justify-center
 }
 
 .form-text-field {

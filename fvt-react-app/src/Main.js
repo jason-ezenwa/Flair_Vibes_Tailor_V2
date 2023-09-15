@@ -9,7 +9,7 @@ function Main() {
 
   async function getRecommendations(event) {
     event.preventDefault();
-    const apiUrl = 'http://localhost:3000/api/v1/get_recommendations';
+    const apiUrl = 'https://jasonflair.pythonanywhere.com/submit_song';
     try {
       const response = await axios.post(apiUrl, {
         song_name: songName,
