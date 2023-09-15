@@ -40,9 +40,7 @@ class recommendationController {
     }
 
     // getting the audio features for the song
-    console.log('getting audio features')
     const audioFeatures = await getAudioFeatures(trackId, access_token);
-    console.log(audioFeatures)
     const danceability = audioFeatures['danceability']
     const tempo = audioFeatures['tempo']
     const key = audioFeatures['key']
@@ -52,7 +50,7 @@ class recommendationController {
       const recommendations = await generateRecommendations(song_name, trackId, artistId, danceability, key, tempo, access_token)
       return res.status(200).json(recommendations);
     } catch (error) {
-      res.status(500).json({error: 'server error'})
+      res.status(500).json({error: error})
     }
 
   }

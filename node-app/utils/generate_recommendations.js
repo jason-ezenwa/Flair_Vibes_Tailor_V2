@@ -42,8 +42,9 @@ async function generateRecommendations(songTitle, trackId, artistId, danceabilit
     const testTrackTitle = trackTitle.replace(/\./g, '').replace(/\?/g, '').trim()
     const trackLink = track['external_urls']['spotify'];
     const recommendedTrackId = track['id'];
+    const trackImage = track['album']['images'][0]['url'];
     if (testTrackTitle.toLower !== songTitle) {
-      recommendedTracks.push({title: trackTitle, artist: artist, link: trackLink, id: recommendedTrackId});
+      recommendedTracks.push({title: trackTitle, artist: artist, link: trackLink, id: recommendedTrackId, image: trackImage});
     }
   }
   const recommendedTracksResponse = {tracks: recommendedTracks};

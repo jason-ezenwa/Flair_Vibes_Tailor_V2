@@ -6,7 +6,6 @@ const cache = new NodeCache();
 async function spotify_auth() {
   const access_token = cache.get('access_token');
   if (access_token) {
-    console.log('access token already exists', access_token)
     return access_token;
   }
   const client_id = process.env.CLIENT_ID
