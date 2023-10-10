@@ -1,21 +1,21 @@
 # Flair_Vibes_Tailor_V2 -  Music Recommender
-A simple web application that allows you to submit your favorite song and get recommended songs that match your taste in music.
+A web application that allows you to submit your favorite song and get recommended songs that match your taste in music.
 
-The Flair Vibes Tailor is a simple music recommender I created for music enthusiasts who are looking for new music to listen to, and individuals who might have gotten tired of their music rotations (libraries and playlists). The music recommender requires the user to put in their favourite song, and then based on that song, it generates recommendations of songs they might like based on similarity of specific audio features like danceability, key (important because people often prefer certain keys in music, and it can affect the emotional response to a song), and tempo of the song submitted. 
+The Flair Vibes Tailor is a music recommender I created for music enthusiasts who are looking for new music to listen to, and individuals who might have gotten tired of their music rotations (libraries and playlists). The music recommender requires the user to put in their favourite song, and then based on that song, it generates recommendations of songs they might like based on similarity of specific audio features like danceability, key (important because people often prefer certain keys in music, and it can affect the emotional response to a song), and tempo of the song submitted. 
 
 As someone who loves music, I've always been interested in the idea of creating a music recommendation system. So, when I reached the final phase of my ALX Africa/Holberton School software engineering foundations sprint where I was required to build a portfolio project, I decided to take go down the path of finally creating my own music recommender.
 
-Link to the deployed product - <a href="https://jasonflair.pythonanywhere.com/fvt" target="_blank">Click Me</a>
+Link to the deployed product - <a href="https://flair-vibes-tailor.vercel.app" target="_blank">Click Me</a>
 
 # Prerequisites
 - Node.js
-- Request
-- jQuery
+- Tailwind CSS
+- React
 
 # Built With
 - <a href="https://nodejs.org/en" target="_blank">Node.js</a> - The server-side runtime environment
-- <a href="https://www.npmjs.com/package/request" target="_blank">Request</a> - A node.js HTTP client
-- <a href="https://api.jquery.com/" target="_blank">jQuery</a> - Used to make the song recommendations render dynamically
+- <a href="https://tailwindcss.com/" target="_blank">Tailwind CSS</a> - This is a utility-first CSS framework used for simplifying the responsive web design process.
+- <a href="https://react.dev/" target="_blank">React</a> - The project is built using the React JavaScript library, providing a robust and efficient front-end framework for dynamic rendering.
 - <a href="https://developer.spotify.com/" target="_blank">Spotify's api</a> - Used to explore audio features and audio analysis of tracks
 
 # Data Source
@@ -24,7 +24,7 @@ The track details, audio features, and recommendations used in this project are 
 # Getting Started
 1. Clone the repository:
 
-   `git clone https://github.com/jasonflair/flairvibes-tailor.git`
+   `git clone https://github.com/JasonFlair/Flair_Vibes_Tailor_V2`
 2. Change into the server-side of the directory:
 
    `cd Flair_Vibes_Tailor_V2/node-app`
@@ -40,21 +40,21 @@ The track details, audio features, and recommendations used in this project are 
 # How the product works
 <h3>Step 1: Put In Your Favourite Song's Details</h3>
           <p>Put in the song you can't get enough of right now as well as the artiste who made the song.</p>
-          <img src="./client-side/static/images/snapshot2.PNG" alt="a sample song is inputed in the form" width="80%" height="20%">
+          <img src="./snapshots/fvt-snapshot-form.PNG" alt="a sample song is inputed in the form" width="80%" height="20%">
 <h3>Step 2: Hit The Submit button to Get Personalized Recommendations</h3>
-          <p>FVT will use Spotify's trusted API with carefully selected paramters to generate a list of songs tailored just for you.</p>
+          <p>FVT will use Spotify's trusted API with carefully selected paramters to generate songs tailored just for you.</p>
 <h3>Step 3: Listen and Enjoy</h3>
           <p>Check out the songs recommended and discover your new favourite artiste(s) or song(s)!.</p>
             <figure>
-              <img src="./client-side/static/images/snapshot3.PNG" alt="a list of recommendations are generated on screen for you" width="80%" height="20%">
-              <figcaption>A list of recommendations is generated and rendered on screen for you.</figcaption>
+              <img src="./snapshots/fvt-snapshot-recommendations.PNG" alt="recommendations are generated on screen for you" width="80%" height="20%">
+              <figcaption>Recommendations is generated and rendered on screen for you.</figcaption>
             </figure>
 
 
 # Development
 Coding for the music recommender project began on February 10th and is still on going as I'm always looking for ways to improve the application and provide better recommendations for users.
         <figure>
-            <img src="api/static/images/trello_board.PNG" alt="Trello board of the Flair Vibes Tailor Minimum Viable Product, as at the 20th of February." width="80%" height="20%">
+            <img src="./snapshots/trello board.PNG" alt="Trello board of the Flair Vibes Tailor Minimum Viable Product, as at the 20th of February." width="80%" height="20%">
             <figcaption>Trello board of the Flair Vibes Tailor Minimum Viable Product, as at the 20th of February.</figcaption>
         </figure>
 
