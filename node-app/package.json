@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/JasonFlair/Flair_Vibes_Tailor_V2#readme",
   "dependencies": {
+    "axios": "^1.6.3",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",

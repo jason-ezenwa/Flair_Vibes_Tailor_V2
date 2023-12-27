@@ -65,7 +65,7 @@ class recommendationController {
       },
     }
 
-    const response = axio
+    const response = axios(options).data;
   }
 }
 export default recommendationController;
