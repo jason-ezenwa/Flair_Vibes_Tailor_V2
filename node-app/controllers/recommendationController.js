@@ -54,5 +54,18 @@ class recommendationController {
     }
 
   }
+
+  static async getHottestSongs () {
+    const options = {
+      method: 'GET',
+      url: 'https://billboard-api2.p.rapidapi.com/hot-100?date=2023-12-23&range=1-10',
+      headers: {
+      'Content-Type': 'application/json',
+      'X-RapidAPI-Key': `${process.env.RAPID_API_SECRET_KEY}`
+      },
+    }
+
+    const response = axio
+  }
 }
 export default recommendationController;
