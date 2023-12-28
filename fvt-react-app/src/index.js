@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Routes, Route }
     from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 import './index.css'
+import { HottestSongs } from './HottestSongs';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -18,8 +19,8 @@ root.render(
     <Routes>
         <Route path='/' exact element={< Main/>} />
         <Route path='/recommendations' exact element={< Recommendations/>} />
+        <Route path='/hottest-songs' exact element={< HottestSongs/>} />
     </Routes>
-    <Footer/>
   </Router>
 );
 

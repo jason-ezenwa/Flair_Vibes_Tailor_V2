@@ -3,14 +3,14 @@
 @tailwind utilities;
 
 .header {
-  @apply p-4 md:p-6 bg-fvtLavender-100 text-center md:text-start;
+  @apply flex flex-col lg:flex-row items-center py-10 px-10 lg:px-20 bg-fvtLavender-100;
 }
 .footer {
-  @apply flex flex-col text-sm md:gap-4 relative bottom-0 mt-16 bg-fvtGrey w-full md:h-32 px-4 py-8 text-center justify-center items-center z-0;
+  @apply flex flex-col text-sm md:gap-4 relative bottom-0 bg-fvtGrey w-full md:h-32 px-4 py-8 text-center justify-center items-center z-0;
 }
 
 .main {
-  @apply p-10 md:ml-16;
+  @apply w-full py-10 px-10 lg:px-20;
 }
 
 .recommendations {
@@ -18,5 +18,13 @@
 }
 
 .form-text-field {
-  @apply w-72 md:w-1/2 h-12 p-3 mb-4 border border-black shadow-xl text-center text-sm sm:text-lg
+  @apply w-72  h-12 p-3 mb-4 border border-black shadow-xl text-center text-sm sm:text-lg
+}
+
+.nav-link {
+  @apply font-medium
+}
+
+.nav-link-active {
+  @apply font-medium text-fvtLavender-200
 }

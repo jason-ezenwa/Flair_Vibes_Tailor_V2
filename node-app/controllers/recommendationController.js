@@ -4,6 +4,7 @@ import request from 'request';
 import axios from 'axios'
 import generateRecommendations from '../utils/generate_recommendations.js';
 import getAudioFeatures from '../utils/get_audio_features.js';
+import { cache } from '../utils/nodeCacheInstance.js';
 class recommendationController {
   static async getRecommendations (req, res) {
     // handles the song inputed by the users and fetches its audio features.
@@ -57,38 +58,48 @@ class recommendationController {
   }
 
   static async getHottestSongs (request, response) {
-    // The Billboard-API is updated weekly and the Billboard chart is based on Saturday
-    // so get the last saturday date:
-    let today = new Date();
-    // Check if today is Saturday (day index 6)
-    if (today.getDay() === 6) {
-      // If today is Saturday, lastSaturday will be the same as today
-      var lastSaturday = today;
-    } else {
-      // Calculate the difference in days between today and the last Saturday
-      let dayOfWeek = today.getDay(); // 0 for Sunday, 6 for Saturday
-      let daysToSubtract = (dayOfWeek + 1) // Calculate days to subtract for last Saturday
-      var lastSaturday = new Date(today.getTime() - daysToSubtract * 24 * 60 * 60 * 1000);
+    try {
+      let hottestSongs = cache.get('hottestSongs');
+      if (!hottestSongs) {
+        // The Billboard-API is updated weekly and the Billboard chart is based on Saturday
+        // so get the last saturday date:
+        let today = new Date();
+        // Check if today is Saturday (day index 6)
+        if (today.getDay() === 6) {
+          // If today is Saturday, lastSaturday will be the same as today
+          var lastSaturday = today;
+        } else {
+          // Calculate the difference in days between today and the last Saturday
+          let dayOfWeek = today.getDay(); // 0 for Sunday, 6 for Saturday
+          let daysToSubtract = (dayOfWeek + 1) // Calculate days to subtract for last Saturday
+          var lastSaturday = new Date(today.getTime() - daysToSubtract * 24 * 60 * 60 * 1000);
+        }
+    
+        const formattedLastSaturday = lastSaturday.toISOString().slice(0, 10); // Format last Saturday's date (YYYY-MM-DD)
+    
+        const options = {
+          method: 'GET',
+          url: `https://billboard-api2.p.rapidapi.com/hot-100?date=${formattedLastSaturday}&range=1-10`,
+          headers: {
+          'Content-Type': 'application/json',
+          'X-RapidAPI-Key': `${process.env.RAPID_API_SECRET_KEY}`,
+          'X-RapidAPI-Host': 'billboard-api2.p.rapidapi.com'
+          },
+        }
+    
+        const resp = (await axios(options)).data;
+        hottestSongs = resp.content;
+        console.log('new hottest songs gotten');
+        cache.set('hottestSongs', hottestSongs, 86400);
+      }
+      console.log('existing hottest songs gotten');
+      return response.status(200).json({
+        message: 'hottest songs available',
+        hottestSongs
+      });
+    } catch (error) {
+      return response.status(500).send(error);
     }
-
-    const formattedLastSaturday = lastSaturday.toISOString().slice(0, 10); // Format last Saturday's date (YYYY-MM-DD)
-
-    const options = {
-      method: 'GET',
-      url: `https://billboard-api2.p.rapidapi.com/hot-100?date=${formattedLastSaturday}&range=1-10`,
-      headers: {
-      'Content-Type': 'application/json',
-      'X-RapidAPI-Key': `${process.env.RAPID_API_SECRET_KEY}`,
-      'X-RapidAPI-Host': 'billboard-api2.p.rapidapi.com'
-      },
-    }
-
-    const resp = (await axios(options)).data;
-    const hottestSongs = resp.content;
-    return response.status(200).json({
-      message: 'hottest songs available',
-      hottestSongs
-    });
   }
 }
 export default recommendationController;
