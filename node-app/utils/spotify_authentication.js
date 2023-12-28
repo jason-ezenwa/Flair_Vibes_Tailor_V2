@@ -1,7 +1,7 @@
 // handles getting auth token for the app.
 import request from 'request';
-import NodeCache from 'node-cache';
-const cache = new NodeCache();
+import { cache } from './nodeCacheInstance.js';
+
 
 async function spotify_auth() {
   const access_token = cache.get('access_token');
