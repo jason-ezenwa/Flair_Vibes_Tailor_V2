@@ -46,7 +46,7 @@ export function HottestSongs() {
       {
         songsList.length > 0 ? (
           <div className='flex flex-col items-center gap-6'>
-            <h1 className='text-[24px] lg:text-[32px] text-center'>Here are the <span className='text-fvtLavender-200'>top 10</span> hottest songs in the world</h1>
+            <h1 className='text-[24px] lg:text-[32px] text-center'>Here are the <span className='text-fvtLavender-200'>top 10</span> hottest songs in the world right now</h1>
             <div className='flex flex-col items-center justify-center lg:flex-row lg:flex-wrap gap-5'>
               {songsList}
             </div>
