@@ -4,12 +4,13 @@ import request from 'request';
 import axios from 'axios'
 import generateRecommendations from '../utils/generate_recommendations.js';
 import getAudioFeatures from '../utils/get_audio_features.js';
-import { cache } from '../utils/nodeCacheInstance.js';
+import redisClient from '../utils/redisClient.js'
 class recommendationController {
   static async getRecommendations (req, res) {
     // handles the song inputed by the users and fetches its audio features.
     // get an access token whenever a user uses the service using client id and secret
     const access_token = await spotify_auth();
+    //console.log(access_token)
     let {song_name} = req.body;
     song_name = song_name.replace(/\./g, '').replace(/\?/g, '').trim();
     const {artist} = req.body;
@@ -38,6 +39,7 @@ class recommendationController {
       trackId = awaitedSearchResult['tracks']['items'][0]['id'];
       artistId = awaitedSearchResult['tracks']['items'][0]['album']['artists'][0]['id']
     } catch (error) {
+      console.log(error)
       return res.status(500).json({error: 'wrong details inputed'});
     }
 
@@ -52,14 +54,14 @@ class recommendationController {
       const recommendations = await generateRecommendations(song_name, trackId, artistId, danceability, key, tempo, access_token)
       return res.status(200).json(recommendations);
     } catch (error) {
-      res.status(500).json({error: error})
+      return res.status(500).json({error: error})
     }
 
   }
 
   static async getHottestSongs (request, response) {
     try {
-      let hottestSongs = cache.get('hottestSongs');
+      let hottestSongs = await redisClient.get('hottestSongs');
       if (!hottestSongs) {
         // The Billboard-API is updated weekly and the Billboard chart is based on Saturday
         // so get the last saturday date:
@@ -89,10 +91,12 @@ class recommendationController {
     
         const resp = (await axios(options)).data;
         hottestSongs = resp.content;
-        console.log('new hottest songs gotten');
-        cache.set('hottestSongs', hottestSongs, 86400);
+        const hottestSongsStringified = JSON.stringify(hottestSongs); // you can only set strings in redis
+        await redisClient.set('hottestSongs', hottestSongsStringified);
+        await redisClient.expire('hottestSongs', 86400);
       }
       console.log('existing hottest songs gotten');
+      hottestSongs = JSON.parse(hottestSongs);
       return response.status(200).json({
         message: 'hottest songs available',
         hottestSongs

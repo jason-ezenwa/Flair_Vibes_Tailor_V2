@@ -3,14 +3,14 @@
 @tailwind utilities;
 
 .header {
-  @apply flex flex-col lg:flex-row items-center py-10 px-10 lg:px-20 bg-fvtLavender-100;
+  @apply flex flex-col lg:flex-row items-center py-10 px-10 lg:px-28 bg-fvtLavender-100;
 }
 .footer {
-  @apply flex flex-col text-sm md:gap-4 relative bottom-0 bg-fvtGrey w-full md:h-32 px-4 py-8 text-center justify-center items-center z-0;
+  @apply relative mt-auto flex flex-col text-sm md:gap-4 bottom-0 z-0 h-[180px] bg-fvtGrey w-full px-4 py-12 text-center items-center justify-center;
 }
 
 .main {
-  @apply w-full py-10 px-10 lg:px-20;
+  @apply w-full min-h-[75vh] py-10 px-10 lg:px-28;
 }
 
 .recommendations {
@@ -22,9 +22,9 @@
 }
 
 .nav-link {
-  @apply font-medium
+  @apply font-medium underline cursor-pointer;
 }
 
 .nav-link-active {
-  @apply font-medium text-fvtLavender-200
+  @apply font-medium text-fvtLavender-200 underline cursor-pointer;
 }

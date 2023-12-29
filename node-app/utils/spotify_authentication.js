@@ -1,10 +1,10 @@
 // handles getting auth token for the app.
 import request from 'request';
-import { cache } from './nodeCacheInstance.js';
+import redisClient from './redisClient.js'
 
 
 async function spotify_auth() {
-  const access_token = cache.get('access_token');
+  const access_token = await redisClient.get('access_token');
   if (access_token) {
     return access_token;
   }
@@ -31,9 +31,10 @@ async function spotify_auth() {
       reject(error);
     })
   })
-  const resolvedAcessToken = await newAccessToken
-  cache.set('access_token', resolvedAcessToken, 3200)
-  return resolvedAcessToken;
+  const resolvedAccessToken = await newAccessToken;
+  await redisClient.set('access_token', resolvedAccessToken)
+  await redisClient.expire('access_token', 3200)
+  return resolvedAccessToken;
 }
 
 export default spotify_auth;
