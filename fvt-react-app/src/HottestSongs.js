@@ -10,7 +10,8 @@ export function HottestSongs() {
     const fetchData = async () => {
       try {
         const response = await axios.get('https://fvt-backend.onrender.com/api/v1/hottest_songs');
-        const {hottestSongs} = response;
+        const {hottestSongs} = response.data;
+        console.log(response)
         if (!hottestSongs) {
           setError('Unable to fetch hottest songs');
           return;
@@ -19,11 +20,11 @@ export function HottestSongs() {
           const song = hottestSongs[songRank];
           return (
             <div key={song.rank} className='p-6 w-full mb-4 lg:w-[40%] h-1/3 shadow-lg rounded-xl'>
-              <h3><strong className='text-fvtLavender-100'>Title:</strong> {song.title}</h3>
+              <h3><strong className='text-fvtLavender-200'>Title:</strong> {song.title}</h3>
               <p>
-                <strong className='text-fvtLavender-100'>Artist:</strong> {song.artist}<br />
-                <strong className='text-fvtLavender-100'>Rank:</strong> {song.rank}<br />
-                <strong className='text-fvtLavender-100'>Last Week:</strong> {song['last week']}<br />
+                <strong className='text-fvtLavender-200'>Artist:</strong> {song.artist}<br />
+                <strong className='text-fvtLavender-200'>Rank:</strong> {song.rank}<br />
+                <strong className='text-fvtLavender-200'>Last Week:</strong> {song['last week']}<br />
               </p>
             </div>
           );
@@ -45,7 +46,7 @@ export function HottestSongs() {
       {
         songsList.length > 0 ? (
           <div className='flex flex-col items-center gap-6'>
-            <h1 className='text-[24px] lg:text-[32px]'>Here are the <span className='text-fvtLavender-200'>top 10</span> hottest songs in the world</h1>
+            <h1 className='text-[24px] lg:text-[32px] text-center'>Here are the <span className='text-fvtLavender-200'>top 10</span> hottest songs in the world</h1>
             <div className='flex flex-col items-center justify-center lg:flex-row lg:flex-wrap gap-5'>
               {songsList}
             </div>
