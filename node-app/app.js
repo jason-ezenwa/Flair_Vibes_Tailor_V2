@@ -7,6 +7,7 @@ import cors from 'cors';
 import allRoutes from './routes/index.js';
 //const authJwt = require('./utils/jwt');
 import errorHandler from './utils/error_handler.js';
+import { job } from './cronJob.js';
 
 // get env variables from .env file
 import 'dotenv/config';
@@ -25,7 +26,8 @@ app.use(`${api}`, allRoutes);
 
 app.listen(PORT, '0.0.0.0', () => {
   console.log('App is listening...');
-  console.log(`${api}`)
+  console.log(`${api}`);
+  job.start();
 });
 
 export default app;
