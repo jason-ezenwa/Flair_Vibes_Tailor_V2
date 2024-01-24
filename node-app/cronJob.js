@@ -1,6 +1,5 @@
 import { CronJob } from 'cron';
 import axios from 'axios';
-import { response } from 'express';
 
 const fvtRenderHomeUrl = 'https://fvt-backend.onrender.com/api/v1/';
 //const localhostHomeUrl = 'http://localhost:3000/api/v1/';
