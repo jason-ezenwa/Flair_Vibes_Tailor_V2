@@ -94,6 +94,10 @@ class recommendationController {
         const hottestSongsStringified = JSON.stringify(hottestSongs); // you can only set strings in redis
         await redisClient.set('hottestSongs', hottestSongsStringified);
         await redisClient.expire('hottestSongs', 86400);
+        return response.status(200).json({
+          message: 'hottest songs available',
+          hottestSongs
+        });
       }
       console.log('existing hottest songs gotten');
       hottestSongs = JSON.parse(hottestSongs);
