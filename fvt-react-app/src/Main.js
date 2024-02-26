@@ -10,7 +10,7 @@ function Main() {
 
   async function getRecommendations(event) {
     event.preventDefault();
-    const apiUrl = 'https://jasonflair.pythonanywhere.com/submit_song';
+    const apiUrl = 'https://fvt-backend.onrender.com/api/v1/get_recommendations';
     try {
       const response = await axios.post(apiUrl, {
         song_name: songName,

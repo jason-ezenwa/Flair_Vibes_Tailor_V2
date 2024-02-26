@@ -6,7 +6,7 @@ const redisClient = await createClient({
   password: process.env.REDIS_PASSWORD,
   socket: {
         host: process.env.REDIS_HOST,
-        port: 13085
+        port: process.env.REDIS_PORT
     }
 })
   .on('error', err => console.log('Redis Client Error', err))
