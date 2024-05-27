@@ -6,7 +6,7 @@ export default function Header() {
 	return (
 		<header className='header'>
 			<h2 onClick={() => navigate("/")}
-			 className="header-text lg:mr-auto mb-4 text-2xl sm:text-3xl select-none cursor-pointer">FLAIR <span className="text-fvtLavender-200">ViBES</span> TAILOR</h2>
+			 className="header-text lg:mr-auto mb-4 text-2xl sm:text-3xl select-none cursor-pointer"><span className="text-fvtLavender-200">ViBES</span> TAILOR</h2>
 			<p onClick={() => navigate("/hottest-songs")}
 				className={location.pathname === "/hottest-songs" ? "nav-link-active" : "nav-link"}>{location.pathname === "/hottest-songs" ? "Hottest Songs" : "Check out the Hottest Songs"}</p>
 		</header>
