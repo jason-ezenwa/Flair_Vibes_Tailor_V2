@@ -1,11 +1,11 @@
-# Flair_Vibes_Tailor_V2 -  Music Recommender
+# Vibes Tailor V2 -  Music Recommender
 A web application that allows you to submit your favorite song and get recommended songs that match your taste in music.
 
-The Flair Vibes Tailor is a music recommender I created for music enthusiasts who are looking for new music to listen to, and individuals who might have gotten tired of their music rotations (libraries and playlists). The music recommender requires the user to put in their favourite song, and then based on that song, it generates recommendations of songs they might like based on similarity of specific audio features like danceability, key (important because people often prefer certain keys in music, and it can affect the emotional response to a song), and tempo of the song submitted. 
+The Vibes Tailor is a music recommender I created for music enthusiasts who are looking for new music to listen to, and individuals who might have gotten tired of their music rotations (libraries and playlists). The music recommender requires the user to put in their favourite song, and then based on that song, it generates recommendations of songs they might like based on similarity of specific audio features like danceability, key (important because people often prefer certain keys in music, and it can affect the emotional response to a song), and tempo of the song submitted. 
 
 As someone who loves music, I've always been interested in the idea of creating a music recommendation system. So, when I reached the final phase of my ALX Africa/Holberton School software engineering foundations sprint where I was required to build a portfolio project, I decided to take go down the path of finally creating my own music recommender.
 
-Link to the deployed product - <a href="https://flair-vibes-tailor.vercel.app" target="_blank">Click Me</a>
+Link to the deployed product - <a href="https://vibes-tailor.vercel.app" target="_blank">Click Me</a>
 
 # Prerequisites
 - Node.js
