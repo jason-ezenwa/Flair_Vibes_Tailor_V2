@@ -1,3 +1,4 @@
+import { Button } from "@mui/material";
 import Footer from "./components/Footer";
 import MusicCard from "./components/MusicCard";
 import { useNavigate, useLocation } from "react-router-dom";
@@ -16,12 +17,28 @@ function Recommendations() {
           Based on your favourite song, <span className="text-fvtLavender-200">{favouriteSong}</span>, here are some songs we think you might like!
         </h3>
         <div className="recommendations">
-            <div className="recommendations">
-              {recommendationCards}
-            </div>
-            <div>
-              <button onClick={() => navigate("/")} className="flex items-center border p-2 w-40 h-16 rounded-md bg-fvtLavender-100">I want to go again!!</button>
-            </div>
+          <div className="recommendations">
+            {recommendationCards}
+          </div>
+          <div className="w-[80%] md:w-[50%]">
+            <Button
+              onClick={(e) => {
+                navigate("/")
+              }}
+              backgroundColor="black"
+              style={{
+                backgroundColor: "#4755A8",
+                color: "white",
+                borderRadius: "1px",
+                marginTop: "1rem",
+                padding: "0.5rem",
+                width: "100%",
+                textTransform: 'none'
+              }}
+            >
+              I want to go again!
+            </Button>
+          </div>
         </div>
       </section>
       <Footer/>

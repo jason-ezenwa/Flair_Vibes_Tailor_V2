@@ -2,10 +2,14 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from 'axios';
 import Footer from "./components/Footer";
+import { Button } from "@mui/material";
 
 function Main() {
   const [songName, setSongName] = useState("");
-  const [artisteName, setArtisteName] = useState("")
+
+  const [artisteName, setArtisteName] = useState("");
+
+  const [generatingRecommendations, setGeneratingRecommendations] = useState(false);
   const navigate = useNavigate();
 
   async function getRecommendations(event) {
@@ -36,18 +40,34 @@ function Main() {
           Get music <span className="text-fvtLavender-200">recommendations</span> based on your favourite song!!
         </h3>
         <div className="">
-            <form className="flex items-center flex-col" 
+          <form className="flex items-center flex-col" 
             id="submit_songs"
-            onSubmit={getRecommendations}
+          >
+            <input className="form-text-field" type="text" id="songName" name="song_name"
+            placeholder="Enter the name of your favourite song"
+            onChange={(event) => setSongName(event.target.value)}/>
+            <input className="form-text-field" type="text" id="artisteName" name="artist_name"
+            placeholder="Tell us who made the song above :) "
+            onChange={(event) => setArtisteName(event.target.value)}/>
+            <Button
+              onClick={(e) => {
+                setGeneratingRecommendations(true);
+                getRecommendations(e);
+              }}
+              backgroundColor="black"
+              style={{
+                backgroundColor: "#4755A8",
+                color: "white",
+                borderRadius: "1px",
+                marginTop: "1rem",
+                padding: "0.5rem",
+                width: "100%",
+                textTransform: 'none'
+              }}
             >
-                <input className="form-text-field" type="text" id="songName" name="song_name"
-                placeholder="Enter the name of your favourite song"
-                onChange={(event) => setSongName(event.target.value)}/>
-                <input className="form-text-field" type="text" id="artisteName" name="artist_name"
-                placeholder="Tell us who made the song above :) "
-                onChange={(event) => setArtisteName(event.target.value)}/>
-                <input className="w-1/4 border bg-fvtLavender-100 h-10 rounded-lg shadow-sm cursor-pointer active:scale-95" type="submit" value="Submit!" id="submit_button"/>
-            </form>
+              {generatingRecommendations ? "Generating Recommendations..." : "Generate Recommendations"}
+            </Button>
+          </form>
         </div>
       </section>
       <Footer/>

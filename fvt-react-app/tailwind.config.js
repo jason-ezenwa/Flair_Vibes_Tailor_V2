@@ -7,6 +7,7 @@ module.exports = {
         fvtLavender: {
           100: '#D1D8F7',
           200: '#4755A8',
+          300: '#A882DD',
         },
         fvtGrey: '#E0E0E0',
       }

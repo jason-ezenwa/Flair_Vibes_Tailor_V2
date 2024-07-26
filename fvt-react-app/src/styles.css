@@ -18,7 +18,7 @@
 }
 
 .form-text-field {
-  @apply w-72  h-12 p-3 mb-4 border border-black shadow-xl text-center text-sm sm:text-lg
+  @apply w-[300px] md:w-[350px]  h-12 p-3 mb-4 border border-black shadow-xl text-center text-sm sm:text-lg
 }
 
 .nav-link {
