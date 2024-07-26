@@ -9,6 +9,8 @@ function Main() {
 
   const [artisteName, setArtisteName] = useState("");
 
+  const buttonIsDisabled = !songName || !artisteName;
+
   const [generatingRecommendations, setGeneratingRecommendations] = useState(false);
   const navigate = useNavigate();
 
@@ -54,9 +56,10 @@ function Main() {
                 setGeneratingRecommendations(true);
                 getRecommendations(e);
               }}
+              disabled={buttonIsDisabled}
               backgroundColor="black"
               style={{
-                backgroundColor: "#4755A8",
+                backgroundColor: buttonIsDisabled ? "#D1D8F7" : "#4755A8",
                 color: "white",
                 borderRadius: "1px",
                 marginTop: "1rem",
