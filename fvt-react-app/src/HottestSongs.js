@@ -1,11 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Footer from './components/Footer';
-import { Divider } from '@mui/material';
+import { Divider, Skeleton } from '@mui/material';
+import useBreakpoints from 'use-breakpoint';
+
+const BREAKPOINTS = { mobile: 0, desktop: 1024 };
 
 export function HottestSongs() {
   const [songsList, setSongsList] = useState([]);
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  const { breakpoint } = useBreakpoints(BREAKPOINTS);
+
+  const isDesktop = breakpoint === 'desktop';
 
   useEffect(() => {
     const fetchData = async () => {
@@ -36,6 +44,8 @@ export function HottestSongs() {
         });
 
         setSongsList(songs);
+
+        setLoading(false);
         
       } catch (error) {
         setError('Error fetching data');
@@ -51,15 +61,30 @@ export function HottestSongs() {
     <>
     <section className="main">
       {
-        songsList.length > 0 ? (
+        !loading && songsList.length > 0 && (
           <div className='flex flex-col items-center gap-6'>
             <h1 className='text-[24px] lg:text-[32px] text-center'>Here are the <span className='text-fvtLavender-200'>top 10</span> hottest songs in the world right now</h1>
             <div className='flex flex-col items-center justify-center lg:flex-row lg:flex-wrap gap-5'>
               {songsList}
             </div>
           </div>
-        ) : <div className='p-10'><strong>Loading...</strong></div>
-      }
+        )
+        }
+        {
+          loading && (
+            <div className='flex flex-col items-center'>
+              <Skeleton variant="text" width={'70%'} height={60}/>
+              <div className='flex flex-col items-center justify-center lg:flex-row lg:flex-wrap gap-5 mt-20'>
+                {Array(10).fill().map((_, index) => (
+                 <Skeleton variant="rounded" key={index}
+                    height={150}
+                    width={isDesktop ? 450 : 300}
+                />
+                ))}
+              </div>
+            </div>
+          )
+        }
     </section>
     <Footer/>
     </>
