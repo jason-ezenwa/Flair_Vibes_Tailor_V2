@@ -18,7 +18,7 @@ app.use(json());
 app.use(morgan('tiny')); // logger
 app.use(errorHandler);
 
-const api = process.env.API_URL;
+const api = process.env.API_VERSION;
 const PORT = process.env.PORT || 3000
 
 app.use(`${api}`, allRoutes);
