@@ -16,7 +16,7 @@ function Main() {
 
   async function getRecommendations(event) {
     event.preventDefault();
-    const apiUrl = `${process.env.VIBES_TAILOR_BACKEND_URL}/api/v1/get_recommendations`;
+    const apiUrl = `${process.env.REACT_APP_VIBES_TAILOR_BACKEND_URL}/api/v1/get_recommendations`;
     try {
       const response = await axios.post(apiUrl, {
         song_name: songName,
