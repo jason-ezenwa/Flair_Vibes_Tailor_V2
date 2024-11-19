@@ -18,7 +18,7 @@ export function HottestSongs() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://fvt-backend.onrender.com/api/v1/hottest_songs');
+        const response = await axios.get(`${process.env.REACT_APP_VIBES_TAILOR_BACKEND_URL}hottest_songs`);
 
         const { hottestSongs } = response.data;
         
